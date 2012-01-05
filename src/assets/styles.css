@@ -1,0 +1,15 @@
+/* CSS Document */
+
+body {
+	padding: 0px;
+	margin: 0px;
+	text-align:center;
+}
+
+
+
+#sketch {
+	border: 2px solid #888888;
+	background-color: #EEEEEE;
+	border-radius: 0px;
+}

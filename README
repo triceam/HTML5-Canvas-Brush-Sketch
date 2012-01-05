@@ -1,0 +1,21 @@
+Sample application demonstrating a drawing application/sketch techniques for HTML5 Canvas elements.  
+
+You can read full details how this works at:
+http://www.tricedesigns.com/2012/01/04/sketching-with-html5-canvas-and-brush-images
+
+*lineTo(x,y)*********************************************************
+The first technique uses the canvas's drawing context moveTo(x,y) and lineTo(x,y) to draw line segments that correspond to the mouse/touch coordinates.   Think of this as playing "connect the dots" and drawing a solid line between two points.
+
+*brush images********************************************************
+The technique for using brush images is identical in concept to the previous example - you are drawing a line from point A to point B.  However, rather than using the built-in drawing APIs you are programmatically repeating an image (the brush) from point A to point B.
+
+*********************************************************************
+
+Both the lineTo.html and brush.html apps use the exact same code, which just uses a separate rendering function based upon the use case.    Feel free to try out the apps on your own using an iPad or in a HTML5 Canvas-capable browser:
+
+lineTo sketch: http://tricedesigns.com/portfolio/sketch/lineTo.html
+brush sketch:  http://tricedesigns.com/portfolio/sketch/brush.html
+
+*********************************************************************
+
+This sample uses jQuery and Modernizr libraries
