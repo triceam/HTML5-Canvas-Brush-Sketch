@@ -97,7 +97,7 @@ Sketcher.prototype.updateCanvasByBrush = function (event) {
   if (distance > 0){
     var sin_a = (end.x - start.x) / distance;
     var cos_a = (end.y - start.y) / distance;
-    for ( var z=0; (z<=distance || z==0); z++ )
+    for ( var z=0; z <= distance; z++ )
     {
       x = start.x + (sin_a * z) - halfBrushW;
       y = start.y + (cos_a * z) - halfBrushH;
