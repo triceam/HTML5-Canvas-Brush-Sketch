@@ -114,6 +114,12 @@ Sketcher.prototype.toString = function () {
 	return dataString;
 }
 
+Sketcher.prototype.toDataURL = function () {
+
+	var dataString = this.canvas.get(0).toDataURL("image/png");
+	return dataString;
+}
+
 Sketcher.prototype.clear = function () {
 
 	var c = this.canvas[0];
