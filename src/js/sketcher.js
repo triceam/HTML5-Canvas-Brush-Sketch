@@ -84,24 +84,27 @@ Sketcher.prototype.updateCanvasByLine = function (event) {
 }
 
 Sketcher.prototype.updateCanvasByBrush = function (event) {
-	var halfBrushW = this.brush.width/2;
-	var halfBrushH = this.brush.height/2;
-	
 	var start = { x:this.lastMousePoint.x, y: this.lastMousePoint.y };
 	this.updateMousePosition( event );
 	var end = { x:this.lastMousePoint.x, y: this.lastMousePoint.y };
-	
+	this.drawLine( start, end );
+}
+
+Sketcher.prototype.drawLine = function (start, end){
+	var halfBrushW = this.brush.width/2;
+	var halfBrushH = this.brush.height/2;
+
 	var distance = parseInt( Trig.distanceBetween2Points( start, end ) );
-	var angle = Trig.angleBetween2Points( start, end );
-	
-	var x,y;
-	
-	for ( var z=0; (z<=distance || z==0); z++ )
-	{
-		x = start.x + (Math.sin(angle) * z) - halfBrushW;
-		y = start.y + (Math.cos(angle) * z) - halfBrushH;
-		//console.log( x, y, angle, z );
-		this.context.drawImage(this.brush, x, y);
+	if ( distance > 0 ){
+		var x,y;
+		var sin_a = ( end.x - start.x ) / distance;
+		var cos_a = ( end.y - start.y ) / distance;
+		for ( var z=0; z <= distance; z++ ){
+			x = start.x + ( sin_a * z ) - halfBrushW;
+			y = start.y + ( cos_a * z ) - halfBrushH;
+			//console.log( x, y, z );
+			this.context.drawImage(this.brush, x, y);
+		}
 	}
 }
 
